@@ -314,8 +314,6 @@ public class ShopStatsPortlet extends MVCPortlet {
 		
         String lineText = null;
 
-        int count = 0;
-
         try {
         	BufferedReader lineReader = new BufferedReader(new InputStreamReader(new FileInputStream(csvFilePath), "windows-1251"));
         	

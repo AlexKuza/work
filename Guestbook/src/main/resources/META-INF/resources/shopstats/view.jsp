@@ -6,7 +6,7 @@
 
 </portlet:actionURL>
 <aui:form action="<%=uploadFile %>" method="post" enctype="multipart/form-data">
- <aui:input type="file" accept=".zip" name="sampleFile" label="Загрузить реестры" />
+ <aui:input type="file" accept=".zip" name="sampleFile" label="Загрузить реестры (старые удалятся)" />
  <button type="submit" class="defaultButton">Upload</button>
 </aui:form>
 
