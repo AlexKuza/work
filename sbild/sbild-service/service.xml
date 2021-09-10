@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="sbild">
+    <author>liferay</author>
+    <namespace>GB</namespace>
+    <entity local-service="true" name="Electronics" uuid="false">
+        <column name="electrId" type="long" primary="true"></column>
+        <column name="name" type="String"></column>
+        <column name="etypeId" type="long"></column>
+        <column name="price" type="long"></column>
+        <column name="count" type="int"></column>
+        <column name="inStock" type="boolean"></column>
+        <column name="archive" type="boolean"></column>
+        <column name="description" type="String"></column>
+    </entity>
+    <entity name="ElectroType" local-service="true" uuid="false">
+        <column name="etypeId" type="long" primary="true"></column>
+        <column name="name" type="String"></column>
+    </entity>
+    <entity name="Purchase" local-service="true" uuid="false">
+        <column name="purchId" type="long" primary="true"></column>
+        <column name="electrId" type="long"></column>
+        <column name="emplId" type="long"></column>
+        <column name="purchDate" type="Date"></column>
+        <column name="purchtypeId" type="long"></column>
+    </entity>
+    <entity name="Employee" local-service="true" uuid="false">
+        <column name="emplId" type="long" primary="true"></column>
+        <column name="lastname" type="String"></column>
+        <column name="firstname" type="String"></column>
+        <column name="patronymic" type="String"></column>
+        <column name="birthdate" type="Date"></column>
+        <column name="posId" type="long"></column>
+        <column name="gender" type="boolean"></column>
+    </entity>
+    <entity name="PositionType" local-service="true" uuid="false">
+        <column name="posId" type="long" primary="true"></column>
+        <column name="name" type="String"></column>
+    </entity>
+    <entity name="PurchaseType" local-service="true" uuid="false">
+        <column name="purchtypeId" type="long" primary="true"></column>
+        <column name="name" type="String"></column>
+    </entity>
+    <entity name="ElectroEmployee" local-service="true" uuid="false">
+        <column name="emplId" type="long" primary="true"></column>
+        <column name="etypeId" type="long" primary="true"></column>
+    </entity>
+    <entity name="EmpltopSum" local-service="true">
+        <column name="position" type="String" primary="false"></column>
+        <column name="lastname" type="String" primary="true"></column>
+        <column name="sum" type="long"></column>
+    </entity>
+    <entity name="EmpltopCnt" local-service="true">
+        <column name="position" type="String" primary="false"></column>
+        <column name="lastname" type="String" primary="true"></column>
+        <column name="count" type="int"></column>
+    </entity>
+
+</service-builder>

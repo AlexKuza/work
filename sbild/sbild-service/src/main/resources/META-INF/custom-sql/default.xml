@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+    <sql id="sbild.service.persistence.GuestbookEntryFinder.findByEntryNameEntryMessageGuestbookName">
+        <![CDATA[
+            SELECT GB_GuestbookEntry.*
+            FROM GB_GuestbookEntry
+            INNER JOIN 
+                GB_Guestbook ON GB_GuestbookEntry.guestbookId = GB_Guestbook.guestbookId
+            WHERE
+                (GB_GuestbookEntry.name LIKE ?) AND
+                (GB_GuestbookEntry.message LIKE ?) AND
+                (GB_Guestbook.name LIKE ?)
+        ]]>
+    </sql>
+    
+    
+    <sql id="sbild.service.persistence.EmpltopSumFinder.findTopBySum">
+        <![CDATA[
+			SELECT o.name as position, o.lastname, o.sum
+			FROM (select gb_positiontype.name, gb_employee.lastname, sum(gb_electronics.price) from gb_positiontype inner join gb_employee on gb_positiontype.posId=gb_employee.posId inner join gb_purchase on gb_employee.emplId=gb_purchase.emplId inner join gb_electronics on gb_electronics.electrId = gb_purchase.electrId GROUP BY gb_positiontype.name, gb_employee.lastname ORDER BY sum(gb_electronics.price) DESC) o                  
+			  LEFT JOIN (select gb_positiontype.name, gb_employee.lastname, sum(gb_electronics.price) from gb_positiontype inner join gb_employee on gb_positiontype.posId=gb_employee.posId inner join gb_purchase on gb_employee.emplId=gb_purchase.emplId inner join gb_electronics on gb_electronics.electrId = gb_purchase.electrId GROUP BY gb_positiontype.name, gb_employee.lastname ORDER BY sum(gb_electronics.price) DESC) b             
+			      ON o.name = b.name AND o.sum < b.sum
+			WHERE b.sum is NULL
+
+		]]>
+    </sql>
+    
+    <sql id="sbild.service.persistence.EmpltopCntFinder.findTopByCnt">
+        <![CDATA[
+			SELECT o.name as position, o.lastname, o.count
+			FROM (select gb_positiontype.name, gb_employee.lastname, COUNT(*) from gb_purchase inner join gb_employee on gb_purchase.emplId=gb_employee.emplId inner join gb_positiontype on gb_positiontype.posId=gb_employee.posId GROUP BY gb_positiontype.name, gb_employee.lastname ORDER BY COUNT(*) DESC) o                  
+			  LEFT JOIN (select gb_positiontype.name, gb_employee.lastname, COUNT(*) from gb_purchase inner join gb_employee on gb_purchase.emplId=gb_employee.emplId inner join gb_positiontype on gb_positiontype.posId=gb_employee.posId GROUP BY gb_positiontype.name, gb_employee.lastname ORDER BY COUNT(*) DESC) b             
+			      ON o.name = b.name AND o.count < b.count
+			WHERE b.count is NULL
+
+		]]>
+    </sql>
+</custom-sql>

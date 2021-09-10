@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="sbild.model.ElectroEmployee">
+		<field name="emplId" type="long" />
+		<field name="etypeId" type="long" />
+	</model>
+	<model name="sbild.model.Electronics">
+		<field name="electrId" type="long" />
+		<field name="name" type="String">
+			<hint name="display-width">50</hint>
+			<hint name="max-length">150</hint>
+		</field>
+		<field name="etypeId" type="long" />
+		<field name="price" type="long" />
+		<field name="count" type="int">
+			<hint name="display-width">20</hint>
+		</field>
+		<field name="inStock" type="boolean">
+			<hint name="display-width">20</hint>
+		</field>
+		<field name="archive" type="boolean">
+			<hint name="display-width">20</hint>
+		</field>
+		<field name="description" type="String">
+			<hint name="display-width">500</hint>
+			<hint name="max-length">5000</hint>
+		</field>
+	</model>
+	<model name="sbild.model.ElectroType">
+		<field name="etypeId" type="long" />
+		<field name="name" type="String" />
+	</model>
+	<model name="sbild.model.Employee">
+		<field name="emplId" type="long" />
+		<field name="lastname" type="String" />
+		<field name="firstname" type="String" />
+		<field name="patronymic" type="String" />
+		<field name="birthdate" type="Date" />
+		<field name="posId" type="long" />
+		<field name="gender" type="boolean" />
+	</model>
+	<model name="sbild.model.EmpltopCnt">
+		<field name="position" type="String" />
+		<field name="lastname" type="String" />
+		<field name="count" type="int" />
+	</model>
+	<model name="sbild.model.EmpltopSum">
+		<field name="position" type="String" />
+		<field name="lastname" type="String" />
+		<field name="sum" type="long" />
+	</model>
+	<model name="sbild.model.PositionType">
+		<field name="posId" type="long" />
+		<field name="name" type="String" />
+	</model>
+	<model name="sbild.model.Purchase">
+		<field name="purchId" type="long" />
+		<field name="electrId" type="long" />
+		<field name="emplId" type="long" />
+		<field name="purchDate" type="Date" />
+		<field name="purchtypeId" type="long" />
+	</model>
+	<model name="sbild.model.PurchaseType">
+		<field name="purchtypeId" type="long" />
+		<field name="name" type="String" />
+	</model>
+</model-hints>

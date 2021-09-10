@@ -1,0 +1,55 @@
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package sbild.service;
+
+import com.liferay.portal.kernel.service.ServiceWrapper;
+
+/**
+ * Provides a wrapper for {@link EmpltopCntService}.
+ *
+ * @author liferay
+ * @see EmpltopCntService
+ * @generated
+ */
+public class EmpltopCntServiceWrapper
+	implements EmpltopCntService, ServiceWrapper<EmpltopCntService> {
+
+	public EmpltopCntServiceWrapper(EmpltopCntService empltopCntService) {
+		_empltopCntService = empltopCntService;
+	}
+
+	/**
+	 * Returns the OSGi service identifier.
+	 *
+	 * @return the OSGi service identifier
+	 */
+	@Override
+	public String getOSGiServiceIdentifier() {
+		return _empltopCntService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public EmpltopCntService getWrappedService() {
+		return _empltopCntService;
+	}
+
+	@Override
+	public void setWrappedService(EmpltopCntService empltopCntService) {
+		_empltopCntService = empltopCntService;
+	}
+
+	private EmpltopCntService _empltopCntService;
+
+}
