@@ -273,6 +273,12 @@ public class ShopStatsPortlet extends MVCPortlet {
 	       
 	       String outDir = "res\\";
 
+	       File directory = new File(outDir);
+	       if (! directory.exists()){
+	           directory.mkdir();
+	           
+	       }
+	       
 	         File file = uploadPortletRequest.getFile("sampleFile");
 	         if (!file.exists()) {
 	           System.out.println("Empty File");
