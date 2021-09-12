@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="sbild.service.persistence.impl.ElectroTypePersistenceImpl" activate="activate" deactivate="deactivate">
+  <service>
+    <provide interface="sbild.service.persistence.ElectroTypePersistence"/>
+    <provide interface="com.liferay.portal.kernel.service.persistence.BasePersistence"/>
+  </service>
+  <reference name="Configuration" interface="com.liferay.portal.kernel.configuration.Configuration" target="(&amp;(origin.bundle.symbolic.name=sbild.service)(name=service))" bind="setConfiguration"/>
+  <reference name="DataSource" interface="javax.sql.DataSource" target="(origin.bundle.symbolic.name=sbild.service)" bind="setDataSource"/>
+  <reference name="SessionFactory" interface="com.liferay.portal.kernel.dao.orm.SessionFactory" target="(origin.bundle.symbolic.name=sbild.service)" bind="setSessionFactory"/>
+  <reference name="entityCache" interface="com.liferay.portal.kernel.dao.orm.EntityCache" field="entityCache"/>
+  <reference name="finderCache" interface="com.liferay.portal.kernel.dao.orm.FinderCache" field="finderCache"/>
+  <implementation class="sbild.service.persistence.impl.ElectroTypePersistenceImpl"/>
+</scr:component>

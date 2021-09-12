@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="sbild.service.persistence.impl.EmpltopCntFinderImpl">
+  <service>
+    <provide interface="sbild.service.persistence.EmpltopCntFinder"/>
+  </service>
+  <reference name="Configuration" interface="com.liferay.portal.kernel.configuration.Configuration" target="(&amp;(origin.bundle.symbolic.name=sbild.service)(name=service))" bind="setConfiguration"/>
+  <reference name="DataSource" interface="javax.sql.DataSource" target="(origin.bundle.symbolic.name=sbild.service)" bind="setDataSource"/>
+  <reference name="SessionFactory" interface="com.liferay.portal.kernel.dao.orm.SessionFactory" target="(origin.bundle.symbolic.name=sbild.service)" bind="setSessionFactory"/>
+  <reference name="_customSQL" interface="com.liferay.portal.dao.orm.custom.sql.CustomSQL" field="_customSQL"/>
+  <reference name="empltopCntPersistence" interface="sbild.service.persistence.EmpltopCntPersistence" field="empltopCntPersistence"/>
+  <implementation class="sbild.service.persistence.impl.EmpltopCntFinderImpl"/>
+</scr:component>

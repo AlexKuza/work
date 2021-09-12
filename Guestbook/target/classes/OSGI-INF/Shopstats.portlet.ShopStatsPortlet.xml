@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="Shopstats.portlet.ShopStatsPortlet" immediate="true">
+  <property name="com.liferay.portlet.display-category" type="String" value="category.social"/>
+  <property name="com.liferay.portlet.instanceable" type="String" value="false"/>
+  <property name="com.liferay.portlet.scopeable" type="String" value="true"/>
+  <property name="javax.portlet.display-name" type="String" value="Shopstats"/>
+  <property name="javax.portlet.expiration-cache" type="String" value="0"/>
+  <property name="javax.portlet.init-param.template-path" type="String" value="/"/>
+  <property name="javax.portlet.init-param.view-template" type="String" value="/shopstats/view.jsp"/>
+  <property name="javax.portlet.resource-bundle" type="String" value="content.Language"/>
+  <property name="javax.portlet.security-role-ref" type="String" value="power-user,user"/>
+  <property name="javax.portlet.supports.mime-type" type="String" value="text/html"/>
+  <property name="javax.portlet.name" type="String" value="Shopstats_ShopStatsPortlet"/>
+  <service>
+    <provide interface="javax.portlet.Portlet"/>
+  </service>
+  <reference name="_electroEmployeeLocalService" interface="sbild.service.ElectroEmployeeLocalService" field="_electroEmployeeLocalService"/>
+  <reference name="_electroTypeLocalService" interface="sbild.service.ElectroTypeLocalService" field="_electroTypeLocalService"/>
+  <reference name="_electronicsLocalService" interface="sbild.service.ElectronicsLocalService" field="_electronicsLocalService"/>
+  <reference name="_employeeLocalService" interface="sbild.service.EmployeeLocalService" field="_employeeLocalService"/>
+  <reference name="_empltopCntLocalService" interface="sbild.service.EmpltopCntLocalService" field="_empltopCntLocalService"/>
+  <reference name="_empltopSumLocalService" interface="sbild.service.EmpltopSumLocalService" field="_empltopSumLocalService"/>
+  <reference name="_positionTypeLocalService" interface="sbild.service.PositionTypeLocalService" field="_positionTypeLocalService"/>
+  <reference name="_purchaseLocalService" interface="sbild.service.PurchaseLocalService" field="_purchaseLocalService"/>
+  <reference name="_purchaseTypeLocalService" interface="sbild.service.PurchaseTypeLocalService" field="_purchaseTypeLocalService"/>
+  <implementation class="Shopstats.portlet.ShopStatsPortlet"/>
+</scr:component>

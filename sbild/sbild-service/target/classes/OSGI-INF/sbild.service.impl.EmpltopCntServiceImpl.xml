@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="sbild.service.impl.EmpltopCntServiceImpl" deactivate="deactivate">
+  <property name="json.web.service.context.name" type="String" value="gb"/>
+  <property name="json.web.service.context.path" type="String" value="EmpltopCnt"/>
+  <service>
+    <provide interface="com.liferay.portal.aop.AopService"/>
+  </service>
+  <reference name="classNameLocalService" interface="com.liferay.portal.kernel.service.ClassNameLocalService" field="classNameLocalService"/>
+  <reference name="classNameService" interface="com.liferay.portal.kernel.service.ClassNameService" field="classNameService"/>
+  <reference name="counterLocalService" interface="com.liferay.counter.kernel.service.CounterLocalService" field="counterLocalService"/>
+  <reference name="electroEmployeePersistence" interface="sbild.service.persistence.ElectroEmployeePersistence" field="electroEmployeePersistence"/>
+  <reference name="electroTypePersistence" interface="sbild.service.persistence.ElectroTypePersistence" field="electroTypePersistence"/>
+  <reference name="electronicsPersistence" interface="sbild.service.persistence.ElectronicsPersistence" field="electronicsPersistence"/>
+  <reference name="employeePersistence" interface="sbild.service.persistence.EmployeePersistence" field="employeePersistence"/>
+  <reference name="empltopCntFinder" interface="sbild.service.persistence.EmpltopCntFinder" field="empltopCntFinder"/>
+  <reference name="empltopCntLocalService" interface="sbild.service.EmpltopCntLocalService" field="empltopCntLocalService"/>
+  <reference name="empltopCntPersistence" interface="sbild.service.persistence.EmpltopCntPersistence" field="empltopCntPersistence"/>
+  <reference name="empltopSumFinder" interface="sbild.service.persistence.EmpltopSumFinder" field="empltopSumFinder"/>
+  <reference name="empltopSumPersistence" interface="sbild.service.persistence.EmpltopSumPersistence" field="empltopSumPersistence"/>
+  <reference name="positionTypePersistence" interface="sbild.service.persistence.PositionTypePersistence" field="positionTypePersistence"/>
+  <reference name="purchasePersistence" interface="sbild.service.persistence.PurchasePersistence" field="purchasePersistence"/>
+  <reference name="purchaseTypePersistence" interface="sbild.service.persistence.PurchaseTypePersistence" field="purchaseTypePersistence"/>
+  <reference name="resourceLocalService" interface="com.liferay.portal.kernel.service.ResourceLocalService" field="resourceLocalService"/>
+  <reference name="userLocalService" interface="com.liferay.portal.kernel.service.UserLocalService" field="userLocalService"/>
+  <reference name="userService" interface="com.liferay.portal.kernel.service.UserService" field="userService"/>
+  <implementation class="sbild.service.impl.EmpltopCntServiceImpl"/>
+</scr:component>

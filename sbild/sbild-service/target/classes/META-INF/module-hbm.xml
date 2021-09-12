@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="sbild.model.ElectroEmployee" />
+	<import class="sbild.model.Electronics" />
+	<import class="sbild.model.ElectroType" />
+	<import class="sbild.model.Employee" />
+	<import class="sbild.model.EmpltopCnt" />
+	<import class="sbild.model.EmpltopSum" />
+	<import class="sbild.model.PositionType" />
+	<import class="sbild.model.Purchase" />
+	<import class="sbild.model.PurchaseType" />
+	<class name="sbild.model.impl.ElectroEmployeeImpl" table="GB_ElectroEmployee">
+		<composite-id class="sbild.service.persistence.ElectroEmployeePK" name="primaryKey">
+			<key-property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="emplId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="etypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+	</class>
+	<class name="sbild.model.impl.ElectronicsImpl" table="GB_Electronics">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="electrId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="etypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="price" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="count" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="inStock" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="archive" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="sbild.model.impl.ElectroTypeImpl" table="GB_ElectroType">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="etypeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="sbild.model.impl.EmployeeImpl" table="GB_Employee">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="emplId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="lastname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="firstname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="patronymic" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="birthdate" type="org.hibernate.type.TimestampType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="posId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="gender" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="sbild.model.impl.EmpltopCntImpl" table="GB_EmpltopCnt">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="lastname" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="position" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="count" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="sbild.model.impl.EmpltopSumImpl" table="GB_EmpltopSum">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="lastname" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="position" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="sum" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="sbild.model.impl.PositionTypeImpl" table="GB_PositionType">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="posId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="sbild.model.impl.PurchaseImpl" table="GB_Purchase">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="purchId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="electrId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="emplId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="purchDate" type="org.hibernate.type.TimestampType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="purchtypeId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="sbild.model.impl.PurchaseTypeImpl" table="GB_PurchaseType">
+		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="purchtypeId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>
