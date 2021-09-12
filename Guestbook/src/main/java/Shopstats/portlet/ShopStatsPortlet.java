@@ -270,8 +270,10 @@ public class ShopStatsPortlet extends MVCPortlet {
 	       UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(actionRequest); 
 	       
 	       cleanRegisters();
+	       //System.out.println("Working Directory = " + System.getProperty("user.dir"));
 	       
-	       String outDir = "res\\";
+	       String outDir = System.getProperty("user.home")+"\\res\\";
+	       System.out.println(outDir);
 
 	       File directory = new File(outDir);
 	       if (! directory.exists()){
